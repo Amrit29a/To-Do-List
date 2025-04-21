@@ -10,11 +10,10 @@
     <div class="container">
         <h1>My To-Do List</h1>
         <div class="todo-input">
-            <input type="text" id="taskInput" placeholder="Add a new task...">
+            <input type="text" id="taskInput" placeholder="Add a new task">
             <button id="addTask">Add</button>
         </div>
         <ul id="taskList">
-            <!-- Tasks will be added here -->
         </ul>
     </div>
     <script>
@@ -33,13 +32,9 @@
                 
                 taskList.appendChild(li);
                 input.value = '';
-                
-                // Add delete functionality
                 li.querySelector('.delete-btn').addEventListener('click', function() {
                     li.remove();
                 });
-                
-                // Add click to toggle completion
                 li.addEventListener('click', function(e) {
                     if (e.target !== li.querySelector('.delete-btn')) {
                         li.classList.toggle('completed');
@@ -47,8 +42,6 @@
                 });
             }
         });
-        
-        // Allow adding tasks with Enter key
         document.getElementById('taskInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 document.getElementById('addTask').click();
